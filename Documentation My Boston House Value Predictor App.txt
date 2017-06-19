@@ -1,0 +1,65 @@
+THE BOSTON HOUSING DATA SET
+
+The Boston Housing Data Set was gathered by Harrison, D. and Rubinfeld, D.L. for their study 'Hedonic prices and the demand for clean air' (Journal for Environmental Economics & Management, vol.5, p 81-102) in 1978. In the data set several variables were measured that influence house prices in Boston (and throughout the whole world).
+
+The data set can be obtained at https://archive.ics.uci.edu/ml/datasets/housing. Furthermore, the data set is contained in the MASS package, which we will use in the App.
+
+DATA AND MODELS
+
+Variables within the Data Set are:
+
+Number of Attributes: 13 continuous attributes (including "class"
+ attribute "MEDV"), 
+1. CRIM      per capita crime rate by town
+    
+2. ZN        proportion of residential land zoned for lots over 25,000 sq.ft.
+    
+3. INDUS     proportion of non-retail business acres per town
+    
+4. CHAS      Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)
+    
+5. NOX       nitric oxides concentration (parts per 10 million)
+    
+6. RM        average number of rooms per dwelling
+    
+7. AGE       proportion of owner-occupied units built prior to 1940
+    
+8. DIS       weighted distances to five Boston employment centres
+    
+9. RAD       index of accessibility to radial highways
+    
+10. TAX      full-value property-tax rate per $10,000
+    
+11. PTRATIO  pupil-teacher ratio by town
+    
+12. B        1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town
+    
+13. LSTAT    % lower status of the population
+    
+14. MEDV     Median value of owner-occupied homes in $1000's
+
+
+
+Missing Attribute Values:  None.
+
+
+
+
+
+USE OF THE DATA SET IN THE APP
+
+Within the App it is possible to fit the data using two different algorithms, the Graded Boosting Method (GBM) and the partial least squares discriminant analysis (PLSDA or PLS) model. Both models lead to a prediction, but the predictions can be different due to the characteristics of the fitting method.
+
+More detailed information is available on https://cran.r-project.org/web/packages/caret/vignettes/caret.pdf for both methods. In the App, the default values of the functions in the Caret package are used. In future releases there may be more refined methods and parameters.
+
+The App is calculating the predicted median house value, the difference between the predictions of the two methods in dollars and percentage.  
+
+FUNCTIONALITY AND USER ASPECTS
+
+The user of the App can set the values of the variables through the slider bars to the left side of the screen. The user can push the 'Submit Now' button to calculate the prediction according to the models.
+The slider bar default values are the means of the Boston Housing Data Set. 
+The first screen that the user sees is the prediction based on the default values of the data. Because the models first have to be calculated, the user must allow a few tens of seconds for the first plot and values on the screen to be seen.
+
+The result of the predictions is shown in a bar plot and as text that is rendered.
+
+By varying the input data one can see that some variables do very little with the predicted value of the house, while some (such as the crime rate) significantly influence the predicted value. By looking at the differences between the model one can observe how the models behave differently. Differences up to 10%-40% of the value in dollars can be seen, which is quite a significant difference. Of course it is useful for the user when the user has actual values of the variables for the houses that he or she wants to prediuct the value for.
